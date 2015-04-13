@@ -12,11 +12,12 @@ public class AzureClientImpl implements AzureClient {
     private final Logger log = LoggerFactory.getLogger(getClass());
     private final String storageConnectionString;
 
+    public static final String CONNECTION_STRING =
+            "DefaultEndpointsProtocol=http;AccountName=%s;AccountKey=%s";
+
     public AzureClientImpl(AzureCredential credentials) {
-        this.storageConnectionString =
-            "DefaultEndpointsProtocol=http" +
-            ";AccountName=" + credentials.getAccountName() +
-            ";AccountKey=" + credentials.getAccountKey();
+        this.storageConnectionString = String.format(CONNECTION_STRING,
+                credentials.getAccountName(), credentials.getAccountKey());
     }
 
     @Override
