@@ -151,8 +151,8 @@ public class ExhibitorCLI
         azureConfigOptions.addOption(null, AZURE_CONFIG, true, "The container name and blob name to store the config (azurecredentials may be provided as well). Argument is [container name]:[blob name].");
 
         Options gcsConfigOptions = new Options();
-        s3ConfigOptions.addOption(null, GCS_CONFIG, true, "The bucket name and key to store the config (gcscredentials may be provided as well). Argument is [bucket name]:[key].");
-        s3ConfigOptions.addOption(null, GCS_CONFIG_PREFIX, true, "When using Google Cloud Storage shared config files, the prefix to use for values such as locks. Default is " + DEFAULT_PREFIX);
+        gcsConfigOptions.addOption(null, GCS_CONFIG, true, "The bucket name and key to store the config (gcscredentials may be provided as well). Argument is [bucket name]:[key].");
+        gcsConfigOptions.addOption(null, GCS_CONFIG_PREFIX, true, "When using Google Cloud Storage shared config files, the prefix to use for values such as locks. Default is " + DEFAULT_PREFIX);
 
         Options zookeeperConfigOptions = new Options();
         zookeeperConfigOptions.addOption(null, ZOOKEEPER_CONFIG_INITIAL_CONNECT_STRING, true, "The initial connection string for ZooKeeper shared config storage. E.g: \"host1:2181,host2:2181...\"");
