@@ -1,6 +1,10 @@
+import javax.tools.ToolProvider
+
 apply plugin: 'nebula.provided-base'
 
 dependencies {
+    compile(files(((URLClassLoader) ToolProvider.getSystemToolClassLoader()).getURLs()))
+
     compile('org.apache.zookeeper:zookeeper:3.4.5') {
         exclude group: 'com.sun.jmx', module: 'jmxri'
         exclude group: 'com.sun.jdmk', module: 'jmxtools'
@@ -23,6 +27,11 @@ dependencies {
     compile 'org.codehaus.jsr166-mirror:jsr166y:1.7.0'
 
     compile "com.amazonaws:aws-java-sdk:${awsVersion}"
+    compile "com.microsoft.azure:azure-storage:${azureVersion}"
+    compile "com.google.api-client:google-api-client:${googleApiVersion}"
+    compile "com.google.apis:google-api-services-storage:${googleStorageVersion}"
+    compile "org.json:json:20140107"
+
     compile "com.sun.jersey:jersey-core:${jerseyVersion}"
     compile "com.sun.jersey:jersey-server:${jerseyVersion}"
     compile "com.sun.jersey:jersey-json:${jerseyVersion}"
